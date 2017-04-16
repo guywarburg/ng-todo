@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from './task';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app works!';
+  private title: string;
+  private todoItems: Task[];
+  constructor() {
+    this.title = 'NG Todo';
+
+    this.todoItems = [
+      {
+        label: 'Call Gal',
+        completed: false,
+        editing: false
+      },
+      {
+        label: 'Finish NICE',
+        completed: false,
+        editing: false
+      },
+      {
+        label: 'Go for a run',
+        completed: false,
+        editing: false
+      }];
+  }
+  removeItem(e) {
+    // alert(JSON.stringify(e));
+    this.todoItems = this.todoItems.filter(todo => {return e.label !== todo.label});
+
+  }
 }
