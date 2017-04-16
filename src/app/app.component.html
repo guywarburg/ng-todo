@@ -1,17 +1,21 @@
 <section class="todoapp">
   <header class="header">
     <h1>{{ title }}</h1>
-    <input class="new-todo" placeholder="What needs to be done?" autofocus>
+    <input class="new-todo" placeholder="What needs to be done?" autofocus #newTodo (keyup.enter)="addNewTodo(newTodo.value); newTodo.value=''">
   </header>
   <section class="main">
     <input class="toggle-all" type="checkbox">
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list"  *ngFor="let item of todoItems">
-      <todo-item [item]="item" (removeItem)="removeItem($event)"></todo-item>
+      <todo-item [item]="item" 
+                (removeItem)="removeItem($event)"
+                (changeLabel)="changeLabel($event)"></todo-item>
     </ul>
   </section>
   <footer class="footer">
-    <span class="todo-count"></span>
+    <span class="todo-count">
+      <strong>{{ todoItems.length }}</strong> Items left
+    </span>
     <ul class="filters">
       <li>
         <a href="#/" class="selected">All</a>
@@ -23,6 +27,6 @@
         <a href="#/completed">Completed</a>
       </li>
     </ul>
-    <button class="clear-completed">Clear completed</button>
+    <button class="clear-completed" (click)="clearCompleted()">Clear completed</button>
   </footer>
 </section>

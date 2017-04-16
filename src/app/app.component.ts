@@ -29,9 +29,30 @@ export class AppComponent {
         editing: false
       }];
   }
-  removeItem(e) {
-    // alert(JSON.stringify(e));
-    this.todoItems = this.todoItems.filter(todo => {return e.label !== todo.label});
 
+  removeItem(e): void {
+    this.todoItems = this.todoItems.filter(todo => {return e.label !== todo.label});
+  }
+
+  addNewTodo(item): void {
+    this.todoItems.push({
+      label: item,
+      completed: false,
+      editing: false
+    });
+  }
+
+  changeLabel(e): void{
+    const newLabel: string = e.newVal;
+    const item: Task = e.item;
+
+    let tempTodo: Task = this.todoItems.find(todo => { return todo.label === item.label});
+    let i: number = this.todoItems.indexOf(tempTodo);
+    
+    this.todoItems[i].label = newLabel;
+  }
+
+  clearCompleted():void {
+    this.todoItems = this.todoItems.filter(todo => !todo.completed);
   }
 }

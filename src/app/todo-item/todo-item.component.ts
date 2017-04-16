@@ -6,17 +6,19 @@ import { Task } from '../task';
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.scss']
 })
-export class TodoItemComponent implements OnInit {
+export class TodoItemComponent {
 
   @Input() item: Task;
   @Output() removeItem: EventEmitter<any> = new EventEmitter();
+  @Output() changeLabel: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
   onDestroy(){
     this.removeItem.emit(this.item);
+  }
+
+  updateLabel(newLabel): void {
+    this.changeLabel.emit({item: this.item, newVal: newLabel});
   }
 }

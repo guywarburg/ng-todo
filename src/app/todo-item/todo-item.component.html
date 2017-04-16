@@ -1,7 +1,16 @@
-<li>
+<li [class.editing]="item.editing">
   <div class="view">
-    <input type="checkbox" class="toggle" [checked]="item.completed" (change)="item.completed = !item.completed">
-    <label [class.completed]="item.completed">{{ item.label }}</label>
+    <input type="checkbox" 
+            class="toggle" 
+            [checked]="item.completed" 
+            (change)="item.completed = !item.completed">
+    <label [class.completed]="item.completed" 
+            (click)="item.editing = true">{{ item.label }}</label>
     <button class="destroy" (click)="onDestroy()"></button>
   </div>
+  <input class="edit" #editTodo 
+        [value]="item.label"
+        (keyup.enter)="updateLabel(editTodo.value); editTodo.value=''" 
+        (blur)="item.editing = false; editTodo.value=''"
+        (keyup.escape)="item.editing = false; editTodo.value=''">
 </li>
