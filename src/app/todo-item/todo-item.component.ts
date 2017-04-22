@@ -19,6 +19,7 @@ export class TodoItemComponent {
   }
 
   updateLabel(newLabel): void {
-    this.changeLabel.emit({item: this.item, newVal: newLabel});
+    this.item.label = newLabel;
+    this.item.editing = false;
   }
 }

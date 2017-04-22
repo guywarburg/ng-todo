@@ -10,7 +10,7 @@
   </div>
   <input class="edit" #editTodo 
         [value]="item.label"
-        (keyup.enter)="updateLabel(editTodo.value); editTodo.value=''" 
-        (blur)="item.editing = false; editTodo.value=''"
-        (keyup.escape)="item.editing = false; editTodo.value=''">
+        (keyup.enter)="updateLabel(editTodo.value)" 
+        (blur)="item.editing = false"
+        (keyup.escape)="item.editing = false">
 </li>

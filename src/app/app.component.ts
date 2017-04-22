@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { Task } from './task';
 
 @Component({
@@ -54,5 +54,9 @@ export class AppComponent {
 
   clearCompleted():void {
     this.todoItems = this.todoItems.filter(todo => !todo.completed);
+  }
+
+  ngDoCheck(){
+    this.todoItems = [...this.todoItems];
   }
 }
