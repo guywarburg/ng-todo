@@ -10,6 +10,7 @@
   </div>
   <input class="edit" #editTodo 
         [value]="item.label"
+        [focus-blur]="item.editing"
         (keyup.enter)="updateLabel(editTodo.value)" 
         (blur)="item.editing = false"
         (keyup.escape)="item.editing = false">

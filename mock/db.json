@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "label":"Call Gal",
+      "completed":false,
+      "editing":false
+    },
+    {
+      "id": 2,
+      "label":"Finish NICE",
+      "completed":false,
+      "editing":false
+    },
+    {
+      "id": 3,
+      "label":"Go for a run",
+      "completed":false,
+      "editing":false
+    }
+    ]
+}
