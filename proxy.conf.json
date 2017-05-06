@@ -1,0 +1,7 @@
+{
+    "/api": {
+        "tagret": "http://localhost:3000",
+        "scure": false,
+        "portRewrite": {"^/api" : ""}
+    }
+}
