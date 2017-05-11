@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../task';
 
 @Component({
@@ -11,15 +11,20 @@ export class TodoItemComponent {
   @Input() item: Task;
   @Output() removeItem: EventEmitter<any> = new EventEmitter();
   @Output() changeLabel: EventEmitter<any> = new EventEmitter();
+  @Output() itemCompleted: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
-  onDestroy(){
+  onDestroy() {
     this.removeItem.emit(this.item);
   }
 
   updateLabel(newLabel): void {
     this.item.label = newLabel;
     this.item.editing = false;
+    this.changeLabel.emit(this.item);
+  }
+  onCompleted() {
+    this.itemCompleted.emit(this.item);
   }
 }

@@ -1,17 +1,17 @@
 <li [class.editing]="item.editing">
   <div class="view">
-    <input type="checkbox" 
-            class="toggle" 
-            [checked]="item.completed" 
-            (change)="item.completed = !item.completed">
-    <label [class.completed]="item.completed" 
+    <input type="checkbox"
+            class="toggle"
+            [checked]="item.completed"
+            (change)="onCompleted()">
+    <label [class.completed]="item.completed"
             (click)="item.editing = true">{{ item.label }}</label>
     <button class="destroy" (click)="onDestroy()"></button>
   </div>
-  <input class="edit" #editTodo 
+  <input class="edit" #editTodo
         [value]="item.label"
         [focus-blur]="item.editing"
-        (keyup.enter)="updateLabel(editTodo.value)" 
+        (keyup.enter)="updateLabel(editTodo.value)"
         (blur)="item.editing = false"
         (keyup.escape)="item.editing = false">
 </li>
