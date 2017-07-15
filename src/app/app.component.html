@@ -6,17 +6,17 @@
   <section class="main">
     <input class="toggle-all" type="checkbox">
     <label for="toggle-all">Mark all as complete</label>
-    <ul class="todo-list"  *ngFor="let item of todoItems">
+    <!--<ul class="todo-list"  *ngFor="let item of todoItems">
       <todo-item [item]="item"
                 (removeItem)="removeItem($event)"
                 (changeLabel)="changeLabel($event)"
                 (itemCompleted)="itemCompleted($event)"></todo-item>
-    </ul>
+    </ul>-->
   </section>
   <footer class="footer">
     <span class="todo-count">
-      <strong>{{ todoItems | countBy : 'completed' : false }}</strong> Items left
+      <!--<strong>{{ todoItems | countBy : 'completed' : false }}</strong> Items left-->
     </span>
-    <button class="clear-completed" (click)="clearCompleted()">Clear completed</button>
+    <!--<button class="clear-completed" (click)="clearCompleted()">Clear completed</button>-->
   </footer>
 </section>
